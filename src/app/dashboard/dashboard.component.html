@@ -1,0 +1,13 @@
+<div [class.spinner]="loading" *ngIf="loading"></div>
+<button (click)="toggleChart()" mat-fab aria-label="Example icon button with a delete icon">
+  <mat-icon *ngIf="openBarChart || !openPieChart" matTooltip="Open Pie Chart">pie_chart</mat-icon>
+  <mat-icon *ngIf="openPieChart" matTooltip="Open Bar Chart">bar_chart</mat-icon>
+</button>
+
+<div *ngIf="dataBar && openBarChart">
+  <app-bar-chart [data]="dataBar"></app-bar-chart>
+</div>
+
+<div *ngIf="dataPie && openPieChart">
+  <app-pie-chart [data]="dataPie"></app-pie-chart>
+</div>
